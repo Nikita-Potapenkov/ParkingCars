@@ -49,6 +49,12 @@
     <Compile Include="AddInDataBase.cs" />
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="DataGridsViews.cs" />
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAllLists.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,18 @@
     <Compile Include="Forms\FormListColors.Designer.cs">
       <DependentUpon>FormListColors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormListContracts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormListContracts.Designer.cs">
+      <DependentUpon>FormListContracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormListPlaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormListPlaces.Designer.cs">
+      <DependentUpon>FormListPlaces.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormListRentors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,16 +97,70 @@
     <Compile Include="Forms\FormMainMenu.Designer.cs">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormListRates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormListRates.Designer.cs">
+      <DependentUpon>FormListRates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsCreate\FormAddColors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsCreate\FormAddColors.Designer.cs">
+      <DependentUpon>FormAddColors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsCreate\FormAddRates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsCreate\FormAddRates.Designer.cs">
+      <DependentUpon>FormAddRates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsCreate\FormAddRentors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsCreate\FormAddRentors.Designer.cs">
+      <DependentUpon>FormAddRentors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsCreate\FormNewRentors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsCreate\FormNewRentors.Designer.cs">
+      <DependentUpon>FormNewRentors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TEST.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\TEST.Designer.cs">
       <DependentUpon>TEST.cs</DependentUpon>
     </Compile>
+    <Compile Include="ParkingDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParkingDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ParkingDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParkingDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ParkingDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParkingDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAllLists.resx">
       <DependentUpon>FormAllLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormListPlaces.resx">
+      <DependentUpon>FormListPlaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormListRates.resx">
+      <DependentUpon>FormListRates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormListCars.resx">
       <DependentUpon>FormListCars.cs</DependentUpon>
@@ -96,11 +168,26 @@
     <EmbeddedResource Include="Forms\FormListColors.resx">
       <DependentUpon>FormListColors.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormListContracts.resx">
+      <DependentUpon>FormListContracts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormListRentors.resx">
       <DependentUpon>FormListRentors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsCreate\FormAddColors.resx">
+      <DependentUpon>FormAddColors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsCreate\FormAddRates.resx">
+      <DependentUpon>FormAddRates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsCreate\FormAddRentors.resx">
+      <DependentUpon>FormAddRentors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormsCreate\FormNewRentors.resx">
+      <DependentUpon>FormNewRentors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TEST.resx">
       <DependentUpon>TEST.cs</DependentUpon>
@@ -114,6 +201,39 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ParkingDataSet.xsc">
+      <DependentUpon>ParkingDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ParkingDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ParkingDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ParkingDataSet.xss">
+      <DependentUpon>ParkingDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ParkingDataSet1.xsc">
+      <DependentUpon>ParkingDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ParkingDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ParkingDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ParkingDataSet1.xss">
+      <DependentUpon>ParkingDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ParkingDataSet2.xsc">
+      <DependentUpon>ParkingDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ParkingDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ParkingDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ParkingDataSet2.xss">
+      <DependentUpon>ParkingDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

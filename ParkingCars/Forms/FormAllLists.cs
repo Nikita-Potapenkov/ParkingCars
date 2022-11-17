@@ -58,5 +58,28 @@ namespace ParkingCars.Forms
             Forms.FormListColors formListColors = new FormListColors();
             formListColors.ShowDialog();
         }
+
+        private void button_list_contract_Click(object sender, EventArgs e)
+        {
+            Forms.FormListContracts formListContrats = new FormListContracts();
+            formListContrats.ShowDialog();
+        }
+
+        private void button_list_places_Click(object sender, EventArgs e)
+        {
+            Forms.FormListPlaces formListplaces = new FormListPlaces();
+            formListplaces.ShowDialog();
+        }
+
+        private void button_list_rates_Click(object sender, EventArgs e)
+        {
+            Forms.FormListRates formListRates = new FormListRates();
+            formListRates.ShowDialog();
+        }
+
+        private void FormAllLists_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,14 +50,32 @@
             this.textBoxNumberCar = new System.Windows.Forms.TextBox();
             this.textBoxMarkCar = new System.Windows.Forms.TextBox();
             this.textBoxModelCar = new System.Windows.Forms.TextBox();
-            this.textBoxColor = new System.Windows.Forms.TextBox();
             this.textBoxNumberContract = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.textBoxParkingPlace = new System.Windows.Forms.TextBox();
-            this.textBoxRate = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.colorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parkingDataSet = new ParkingCars.ParkingDataSet();
+            this.parkingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.parkingDataSet2 = new ParkingCars.ParkingDataSet2();
+            this.ratesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colorsTableAdapter = new ParkingCars.ParkingDataSetTableAdapters.colorsTableAdapter();
+            this.parkingDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carsTableAdapter = new ParkingCars.ParkingDataSetTableAdapters.carsTableAdapter();
+            this.carsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ratesTableAdapter = new ParkingCars.ParkingDataSet2TableAdapters.ratesTableAdapter();
+            this.parkingTableAdapter = new ParkingCars.ParkingDataSet2TableAdapters.parkingTableAdapter();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.colorsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ratesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -236,13 +255,6 @@
             this.textBoxModelCar.Size = new System.Drawing.Size(100, 20);
             this.textBoxModelCar.TabIndex = 20;
             // 
-            // textBoxColor
-            // 
-            this.textBoxColor.Location = new System.Drawing.Point(169, 291);
-            this.textBoxColor.Name = "textBoxColor";
-            this.textBoxColor.Size = new System.Drawing.Size(100, 20);
-            this.textBoxColor.TabIndex = 21;
-            // 
             // textBoxNumberContract
             // 
             this.textBoxNumberContract.Location = new System.Drawing.Point(576, 48);
@@ -272,20 +284,6 @@
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker3.TabIndex = 25;
             // 
-            // textBoxParkingPlace
-            // 
-            this.textBoxParkingPlace.Location = new System.Drawing.Point(526, 257);
-            this.textBoxParkingPlace.Name = "textBoxParkingPlace";
-            this.textBoxParkingPlace.Size = new System.Drawing.Size(100, 20);
-            this.textBoxParkingPlace.TabIndex = 26;
-            // 
-            // textBoxRate
-            // 
-            this.textBoxRate.Location = new System.Drawing.Point(526, 317);
-            this.textBoxRate.Name = "textBoxRate";
-            this.textBoxRate.Size = new System.Drawing.Size(100, 20);
-            this.textBoxRate.TabIndex = 27;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(427, 405);
@@ -296,19 +294,83 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // colorsBindingSource
+            // 
+            this.colorsBindingSource.DataMember = "colors";
+            this.colorsBindingSource.DataSource = this.parkingDataSet;
+            // 
+            // parkingDataSet
+            // 
+            this.parkingDataSet.DataSetName = "ParkingDataSet";
+            this.parkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // parkingBindingSource
+            // 
+            this.parkingBindingSource.DataMember = "parking";
+            this.parkingBindingSource.DataSource = this.parkingDataSet2;
+            // 
+            // parkingDataSet2
+            // 
+            this.parkingDataSet2.DataSetName = "ParkingDataSet2";
+            this.parkingDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ratesBindingSource
+            // 
+            this.ratesBindingSource.DataMember = "rates";
+            this.ratesBindingSource.DataSource = this.parkingDataSet2;
+            // 
+            // colorsTableAdapter
+            // 
+            this.colorsTableAdapter.ClearBeforeFill = true;
+            // 
+            // parkingDataSetBindingSource
+            // 
+            this.parkingDataSetBindingSource.DataSource = this.parkingDataSet;
+            this.parkingDataSetBindingSource.Position = 0;
+            // 
+            // carsBindingSource
+            // 
+            this.carsBindingSource.DataMember = "cars";
+            this.carsBindingSource.DataSource = this.parkingDataSetBindingSource;
+            // 
+            // carsTableAdapter
+            // 
+            this.carsTableAdapter.ClearBeforeFill = true;
+            // 
+            // carsBindingSource1
+            // 
+            this.carsBindingSource1.DataMember = "cars";
+            this.carsBindingSource1.DataSource = this.parkingDataSetBindingSource;
+            // 
+            // ratesTableAdapter
+            // 
+            this.ratesTableAdapter.ClearBeforeFill = true;
+            // 
+            // parkingTableAdapter
+            // 
+            this.parkingTableAdapter.ClearBeforeFill = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(499, 179);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 32;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // TEST
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(841, 441);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBoxRate);
-            this.Controls.Add(this.textBoxParkingPlace);
             this.Controls.Add(this.dateTimePicker3);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.textBoxNumberContract);
-            this.Controls.Add(this.textBoxColor);
             this.Controls.Add(this.textBoxModelCar);
             this.Controls.Add(this.textBoxMarkCar);
             this.Controls.Add(this.textBoxNumberCar);
@@ -333,6 +395,14 @@
             this.Name = "TEST";
             this.Text = "TEST";
             this.Load += new System.EventHandler(this.TEST_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.colorsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ratesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parkingDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,13 +431,23 @@
         private System.Windows.Forms.TextBox textBoxNumberCar;
         private System.Windows.Forms.TextBox textBoxMarkCar;
         private System.Windows.Forms.TextBox textBoxModelCar;
-        private System.Windows.Forms.TextBox textBoxColor;
         private System.Windows.Forms.TextBox textBoxNumberContract;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.TextBox textBoxParkingPlace;
-        private System.Windows.Forms.TextBox textBoxRate;
         private System.Windows.Forms.Button button1;
+        private ParkingDataSet parkingDataSet;
+        private System.Windows.Forms.BindingSource colorsBindingSource;
+        private ParkingDataSetTableAdapters.colorsTableAdapter colorsTableAdapter;
+        private System.Windows.Forms.BindingSource parkingDataSetBindingSource;
+        private System.Windows.Forms.BindingSource carsBindingSource;
+        private ParkingDataSetTableAdapters.carsTableAdapter carsTableAdapter;
+        private System.Windows.Forms.BindingSource carsBindingSource1;
+        private ParkingDataSet2 parkingDataSet2;
+        private System.Windows.Forms.BindingSource ratesBindingSource;
+        private ParkingDataSet2TableAdapters.ratesTableAdapter ratesTableAdapter;
+        private System.Windows.Forms.BindingSource parkingBindingSource;
+        private ParkingDataSet2TableAdapters.parkingTableAdapter parkingTableAdapter;
+        private System.Windows.Forms.Button button2;
     }
 }

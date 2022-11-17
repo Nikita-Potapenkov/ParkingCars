@@ -1,4 +1,5 @@
 ﻿using ParkingCars.Forms;
+using ParkingCars.Forms.FormsCreate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,8 +38,15 @@ namespace ParkingCars
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Forms.TEST tEST = new TEST();
-            tEST.ShowDialog();
+            Forms.FormsCreate.FormNewRentors formNewRentors = new FormNewRentors();
+            formNewRentors.ShowDialog();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Forms.Form1 form1 = new Form1();
+            form1.ShowDialog();
         }
     }
 }

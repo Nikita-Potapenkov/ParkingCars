@@ -39,6 +39,30 @@ namespace ParkingCars
             adapter = new SqlDataAdapter("SELECT * FROM colors", connectionDB.GetConnection());
             table = new DataTable();
         }
-      
+        
+        public void Query_on_DataGrid_All_Contracts()
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM contracts", connectionDB.GetConnection());
+            table = new DataTable();
+
+       
+        }
+
+        public void Query_on_DataGrid_All_Places()
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM parking", connectionDB.GetConnection());
+            table = new DataTable();
+
+
+        }
+
+        public void Query_on_DataGrid_All_Rates()
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM rates", connectionDB.GetConnection());
+            table = new DataTable();
+
+        }
+
+       
     }
 }

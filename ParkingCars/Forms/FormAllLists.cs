@@ -42,10 +42,10 @@ namespace ParkingCars.Forms
         private void button1_Click(object sender, EventArgs e)
         {
 
-            dataGridsViews.Query_on_DataGrid_Cars_and_Rentors();
-            dataGridsViews.table.Clear();
-            dataGridsViews.adapter.Fill(dataGridsViews.table);
-            dataGridView1.DataSource = dataGridsViews.table;
+         //   dataGridsViews.Query_on_DataGrid_Cars_and_Rentors();
+          //  dataGridsViews.table.Clear();
+          //  dataGridsViews.adapter.Fill(dataGridsViews.table);
+          //  dataGridView1.DataSource = dataGridsViews.table;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

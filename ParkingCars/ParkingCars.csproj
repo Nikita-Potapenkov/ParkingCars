@@ -127,11 +127,11 @@
     <Compile Include="Forms\FormsCreate\FormNewRentors.Designer.cs">
       <DependentUpon>FormNewRentors.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TEST.cs">
+    <Compile Include="Forms\MeinEmployee\MainMenuEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TEST.Designer.cs">
-      <DependentUpon>TEST.cs</DependentUpon>
+    <Compile Include="Forms\MeinEmployee\MainMenuEmployee.Designer.cs">
+      <DependentUpon>MainMenuEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="ParkingDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -189,8 +189,8 @@
     <EmbeddedResource Include="Forms\FormsCreate\FormNewRentors.resx">
       <DependentUpon>FormNewRentors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TEST.resx">
-      <DependentUpon>TEST.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MeinEmployee\MainMenuEmployee.resx">
+      <DependentUpon>MainMenuEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

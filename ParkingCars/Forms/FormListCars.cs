@@ -90,10 +90,10 @@ namespace ParkingCars.Forms
         {
            
 
-            dataGridsViews.Query_on_DataGridView_All_Cars();
-            dataGridsViews.table.Clear();
-            dataGridsViews.adapter.Fill(dataGridsViews.table);
-           DataGridViewCarsInsertColumns();
+        //    dataGridsViews.Query_on_DataGridView_All_Cars();
+         //   dataGridsViews.table.Clear();
+         //   dataGridsViews.adapter.Fill(dataGridsViews.table);
+         //  DataGridViewCarsInsertColumns();
            
 
 

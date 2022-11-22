@@ -17,50 +17,13 @@ namespace ParkingCars
         
         public SqlDataAdapter adapter = null;
         public DataTable table = null;
-
-        public void Query_on_DataGridView_All_Cars()
+        public void Query_on_Main_Menu()
         {
-            adapter = new SqlDataAdapter("SELECT cars.car_id,cars.car_number,cars.car_mark,cars.car_model,colors.color_name " +
-                "FROM cars inner join colors on cars.car_color_id=colors.color_id", connectionDB.GetConnection());
-            table = new DataTable();
-        }
-
-
-        public void Query_on_DataGrid_Cars_and_Rentors()
-        {
-            adapter = new SqlDataAdapter("SELECT rentors.rentor_surname,cars.cars_number,cars.cars_mark,cars.cars_model " +
-                "FROM rentors inner join cars on rentors.cars_id=cars.cars_id", 
+            adapter = new SqlDataAdapter("SELECT contract_parking_id ,car_number ,rentor_surname,rentor_middlename,rentor_name  " +
+                ",contract_begining_of_the_mouth,contract_date_extension, contract_valid FROM rentors r JOIN cars c  ON r.rentor_car_id=c.car_id" +
+                " JOIN contracts cont ON r.rentor_contract_id=cont.contract_id", 
                 connectionDB.GetConnection());
             table = new DataTable();
-        }
-
-        public void Query_on_DataGridView_All_Colors()
-        {
-            adapter = new SqlDataAdapter("SELECT * FROM colors", connectionDB.GetConnection());
-            table = new DataTable();
-        }
-        
-        public void Query_on_DataGrid_All_Contracts()
-        {
-            adapter = new SqlDataAdapter("SELECT * FROM contracts", connectionDB.GetConnection());
-            table = new DataTable();
-
-       
-        }
-
-        public void Query_on_DataGrid_All_Places()
-        {
-            adapter = new SqlDataAdapter("SELECT * FROM parking", connectionDB.GetConnection());
-            table = new DataTable();
-
-
-        }
-
-        public void Query_on_DataGrid_All_Rates()
-        {
-            adapter = new SqlDataAdapter("SELECT * FROM rates", connectionDB.GetConnection());
-            table = new DataTable();
-
         }
 
        

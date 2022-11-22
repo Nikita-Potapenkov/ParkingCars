@@ -1,5 +1,6 @@
 ﻿using ParkingCars.Forms;
 using ParkingCars.Forms.FormsCreate;
+using ParkingCars.Forms.MeinEmployee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,5 +49,11 @@ namespace ParkingCars
             Forms.Form1 form1 = new Form1();
             form1.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Forms.MeinEmployee.MainMenuEmployee mainMenuEmployee = new MainMenuEmployee();
+            mainMenuEmployee.ShowDialog();
+                }
     }
 }

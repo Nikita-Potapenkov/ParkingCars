@@ -48,6 +48,7 @@
             this.dataGridView_list_colors.Size = new System.Drawing.Size(238, 302);
             this.dataGridView_list_colors.TabIndex = 0;
             this.dataGridView_list_colors.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_list_colors_CellClick);
+            this.dataGridView_list_colors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_list_colors_CellContentClick);
             // 
             // button_add_colors
             // 

@@ -15,7 +15,7 @@ namespace ParkingCars.Forms
 {
     public partial class FormListColors : Form
     {
-
+       
         enum RowState
         {
             Exited,
@@ -192,6 +192,11 @@ namespace ParkingCars.Forms
             command.ExecuteNonQuery();
             RefreshDataGrid(dataGridView_list_colors);
             MessageBox.Show("Цвет удален");
+
+        }
+
+        private void dataGridView_list_colors_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

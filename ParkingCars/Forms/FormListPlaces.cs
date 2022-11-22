@@ -63,11 +63,11 @@ namespace ParkingCars.Forms
         }
         private void button_on_all_places_Click(object sender, EventArgs e)
         {
-            dataGridsViews.Query_on_DataGrid_All_Places();
-            dataGridsViews.table.Clear();
-            dataGridsViews.adapter.Fill(dataGridsViews.table);
+            //dataGridsViews.Query_on_DataGrid_All_Places();
+           // dataGridsViews.table.Clear();
+           // dataGridsViews.adapter.Fill(dataGridsViews.table);
             // DataGridViewCarsInsertColumns();
-            dataGridView_list_place.DataSource = dataGridsViews.table;
+          //  dataGridView_list_place.DataSource = dataGridsViews.table;
         }
 
         private void button_add_place_Click(object sender, EventArgs e)

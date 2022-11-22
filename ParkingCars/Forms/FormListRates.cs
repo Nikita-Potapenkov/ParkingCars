@@ -88,11 +88,11 @@ namespace ParkingCars.Forms
 
         private void button_on_all_colors_Click(object sender, EventArgs e)
         {
-            dataGridsViews.Query_on_DataGrid_All_Rates();
-            dataGridsViews.table.Clear();
-            dataGridsViews.adapter.Fill(dataGridsViews.table);
+         //   dataGridsViews.Query_on_DataGrid_All_Rates();
+           // dataGridsViews.table.Clear();
+           // dataGridsViews.adapter.Fill(dataGridsViews.table);
             // DataGridViewCarsInsertColumns();
-            dataGridView_list_rates.DataSource = dataGridsViews.table;
+           // dataGridView_list_rates.DataSource = dataGridsViews.table;
         }
 
         private void button_add_colors_Click(object sender, EventArgs e)

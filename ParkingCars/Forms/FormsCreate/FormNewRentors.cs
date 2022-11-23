@@ -78,19 +78,43 @@ namespace ParkingCars.Forms.FormsCreate
             var new_number_contract = Convert.ToInt32(textBoxNumberContract.Text);
             var new_date1 = dateTimePicker.Value;
             var new_date2 = dateTimePicker2.Value;
-            var new_date3= dateTimePicker.Value.AddMonths(1);
-            
+
             var new_place = Convert.ToInt32(comboBox2.SelectedValue);
             var new_rate = Convert.ToInt32(comboBox3.SelectedValue);
-
-
-
-            var Query = $"INSERT INTO contracts(contract_number,contract_date_of_conclusion" +
+            
+            if (comboBox3.SelectedIndex==0||comboBox3.SelectedIndex == 1)
+            {
+                var new_date3 = dateTimePicker.Value.AddMonths(1);
+                var Query = $"INSERT INTO contracts(contract_number,contract_date_of_conclusion" +
                 $",contract_begining_of_the_mouth,contract_date_extension,contract_parking_id,contract_rate_id) " +
                 $"VALUES ({new_number_contract},'{new_date1}','{new_date2}','{new_date3}',{new_place},{new_rate})";
+                //     var new_date3 = dateTimePicker.Value.AddMonths(1);
+                var command = new SqlCommand(Query, connectionDB.GetConnection());
+                command.ExecuteNonQuery();
+            }
+            else if(comboBox3.SelectedIndex == 2 || comboBox3.SelectedIndex == 3)
+            {
+                var new_date3 = dateTimePicker.Value.AddDays(1);
+                var Query = $"INSERT INTO contracts(contract_number,contract_date_of_conclusion" +
+                $",contract_begining_of_the_mouth,contract_date_extension,contract_parking_id,contract_rate_id) " +
+                $"VALUES ({new_number_contract},'{new_date1}','{new_date2}','{new_date3}',{new_place},{new_rate})";
+                //     var new_date3 = dateTimePicker.Value.AddMonths(1);
+                var command = new SqlCommand(Query, connectionDB.GetConnection());
+                command.ExecuteNonQuery();
+            }
+          //  var new_date3= dateTimePicker.Value.AddMonths(1);
+            
+          //  var new_place = Convert.ToInt32(comboBox2.SelectedValue);
+         //   var new_rate = Convert.ToInt32(comboBox3.SelectedValue);
 
-            var command = new SqlCommand(Query, connectionDB.GetConnection());
-            command.ExecuteNonQuery();
+
+
+         //   var Query = $"INSERT INTO contracts(contract_number,contract_date_of_conclusion" +
+         //       $",contract_begining_of_the_mouth,contract_date_extension,contract_parking_id,contract_rate_id) " +
+         //       $"VALUES ({new_number_contract},'{new_date1}','{new_date2}','{new_date3}',{new_place},{new_rate})";
+
+      //      var command = new SqlCommand(Query, connectionDB.GetConnection());
+        //    command.ExecuteNonQuery();
 
 
 

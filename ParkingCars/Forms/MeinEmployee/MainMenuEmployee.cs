@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ParkingCars.Forms.MeinEmployee
 {
@@ -24,6 +25,9 @@ namespace ParkingCars.Forms.MeinEmployee
         }
         ConnectionDB connectionDB = new ConnectionDB();
         DataGridsViews dataGridsViews = new DataGridsViews();
+
+        int selectedRow;
+
         public MainMenuEmployee()
         {
             InitializeComponent();
@@ -44,10 +48,13 @@ namespace ParkingCars.Forms.MeinEmployee
 
         private void MainMenuEmployee_Load(object sender, EventArgs e)
         {
-            connectionDB.OpenConnection();
-            var commandNUM = new SqlCommand("SELECT COUNT(parking_valid)FROM parking WHERE parking_valid=1", connectionDB.GetConnection());
-            var NUM = commandNUM.ExecuteScalar();
-            label1.Text = Convert.ToString(NUM);
+             connectionDB.OpenConnection();
+             var commandNUM = new SqlCommand("SELECT COUNT(parking_valid)FROM parking WHERE parking_valid=1", connectionDB.GetConnection());
+             var NUM = commandNUM.ExecuteScalar();
+             label1.Text = Convert.ToString(NUM);
+            var commandQuery_on_Debtors = new SqlCommand("SELECT COUNT(contract_id)FROM contracts WHERE contract_date_extension <= GETDATE()", connectionDB.GetConnection());
+            var Query_on_Debtors = commandQuery_on_Debtors.ExecuteScalar();
+            label3.Text=Convert.ToString(Query_on_Debtors);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,5 +69,92 @@ namespace ParkingCars.Forms.MeinEmployee
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridsViews.Query_on_Debtors();
+            dataGridsViews.table.Clear();
+            dataGridsViews.adapter.Fill(dataGridsViews.table);
+            dataGridView1.DataSource = dataGridsViews.table;
+        }
+        private void Change()
+        {
+            var selectedRowIndex =dataGridView1.CurrentCell.RowIndex;
+
+            var parking_place = textBox1.Text;
+            var num_car = textBox2.Text;
+            var surname = textBox3.Text;
+            var name = textBox4.Text;
+            var midname = textBox5.Text;
+            var ren_num = textBox6.Text;
+            var date = dateTimePicker1.Value;
+            var date_ex = dateTimePicker2.Value;
+            var valid = textBox8.Text;
+         
+
+           if (dataGridView1.Rows[selectedRowIndex].Cells[0].ToString() != string.Empty)
+           {
+                dataGridView1.Rows[selectedRowIndex].SetValues( parking_place, num_car, surname, name, midname, date, date_ex, valid);
+                dataGridView1.Rows[selectedRowIndex].Cells[9].Value = RowState.Modifided;
+           }
+            /// var updateQuery = $"UPDATE rentors SET rentor_surname='{surname}',rentor_name='{name}',rentor_middlename='{middlename}'" +
+            //         $",rentor_number='{number}',rentor_valid='{valid}',rentor_car_id='{car_id}',rentor_contract_id='{contract_id}' WHERE rentor_id ={id}";
+
+            //   var command = new SqlCommand(updateQuery, connectionDB.GetConnection());
+            //command.ExecuteNonQuery();
+
+            var DeleteParking = $"UPDATE parking SET parking_valid=1 WHERE parking_id={parking_place}";
+            var DeleteContracts = $"UPDATE contracts SET contracts_valid = 0 WHERE contract_parking_id={parking_place}";
+            var DeleteRentors = $"UPDATE rentors SET rentor_valid=0 WHERE rentor_number={ren_num} ";
+            var DeleteCars = $"UPDATE cars SET car_valid = 0 WHERE car_number={num_car}";
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Change();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[selectedRow];
+
+                textBox1.Text = row.Cells[0].Value.ToString();
+                textBox2.Text = row.Cells[1].Value.ToString();
+                textBox3.Text = row.Cells[2].Value.ToString();
+                textBox4.Text = row.Cells[3].Value.ToString();
+                textBox5.Text = row.Cells[4].Value.ToString();
+                textBox6.Text = row.Cells[5].Value.ToString();
+                dateTimePicker1.Text = row.Cells[6].Value.ToString();
+                dateTimePicker2.Text = row.Cells[7].Value.ToString();
+                textBox8.Text = row.Cells[8].Value.ToString();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var new_number_contract=textBox1.Text;
+            var new_date1 = dateTimePicker2.Value;
+            var new_date2 = dateTimePicker2.Value.AddMonths(1);
+            var Query = $"UPDATE contracts SET contract_date_extension='{new_date2}',contract_begining_of_the_mouth='{new_date1}' WHERE contract_parking_id={new_number_contract}";
+          
+            var command = new SqlCommand(Query, connectionDB.GetConnection());
+            command.ExecuteNonQuery();
+            MessageBox.Show($"Стоянка продлена до {new_date2}");
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }
+

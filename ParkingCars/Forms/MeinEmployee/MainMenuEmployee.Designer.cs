@@ -58,6 +58,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // 
             // buttonNewRentors
             // 
-            this.buttonNewRentors.Location = new System.Drawing.Point(2, 353);
+            this.buttonNewRentors.Location = new System.Drawing.Point(12, 486);
             this.buttonNewRentors.Name = "buttonNewRentors";
             this.buttonNewRentors.Size = new System.Drawing.Size(142, 23);
             this.buttonNewRentors.TabIndex = 1;
@@ -140,7 +141,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(2, 314);
+            this.button3.Location = new System.Drawing.Point(12, 457);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(126, 23);
             this.button3.TabIndex = 8;
@@ -321,12 +322,24 @@
             this.label15.Size = new System.Drawing.Size(41, 13);
             this.label15.TabIndex = 31;
             this.label15.Text = "label15";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(2, 314);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(126, 23);
+            this.button5.TabIndex = 32;
+            this.button5.Text = "Продлить на день";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // MainMenuEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 568);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -398,5 +411,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button5;
     }
 }

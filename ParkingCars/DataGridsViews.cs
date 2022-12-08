@@ -19,7 +19,7 @@ namespace ParkingCars
         public DataTable table = null;
         public void Query_on_Main_Menu()
         {
-            adapter = new SqlDataAdapter("SELECT contract_parking_id  AS 'Место' ,car_number AS 'Номер авто',rentor_surname AS 'Фамилия',rentor_middlename AS 'Отчество',rentor_name AS 'Имя',rentor_number AS 'Номер тел.'" +
+            adapter = new SqlDataAdapter("SELECT contract_parking_id  AS 'Место' ,car_number AS 'Номер авто',rentor_surname AS 'Фамилия',rentor_name AS 'Имя',rentor_middlename AS 'Отчество',rentor_number AS 'Номер тел.'" +
                 ",contract_begining_of_the_mouth AS 'Дата оплаты',contract_date_extension AS 'Дата окончания', contract_valid AS 'Дейсвит' FROM rentors r JOIN cars c  ON r.rentor_car_id=c.car_id" +
                 " JOIN contracts cont ON r.rentor_contract_id=cont.contract_id  WHERE contract_valid=1", 
                 connectionDB.GetConnection());

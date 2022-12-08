@@ -205,5 +205,27 @@ namespace ParkingCars.Forms
             }
             exApp.Visible = true;
         }
+        private void Search(DataGridView dgv)
+        {
+            dgv.Rows.Clear();
+
+            string searchString = $"select * from rentors where concat(rentor_id,rentor_surname,rentor_middlename,rentor_name," +
+                $"rentor_number,rentor_valid,rentor_car_id,rentor_contract_id) like" +
+                $"'%" + textBox1.Text + "%'";
+            SqlCommand com = new SqlCommand(searchString,connectionDB.GetConnection());
+            connectionDB.OpenConnection();
+
+            SqlDataReader reader = com.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ReadSingleRow(dgv, reader);
+            }
+            reader.Close();
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Search(dataGridView_List__rentors);
+        }
     }
 }

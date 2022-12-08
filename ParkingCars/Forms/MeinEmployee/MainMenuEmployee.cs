@@ -179,6 +179,23 @@ namespace ParkingCars.Forms.MeinEmployee
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var new_number_contract = textBox1.Text;
+            var new_date1 = dateTimePicker2.Value;
+            var new_date2 = dateTimePicker2.Value.AddDays(1);
+            var Query = $"UPDATE contracts SET contract_date_extension='{new_date2}',contract_begining_of_the_mouth='{new_date1}' WHERE contract_parking_id={new_number_contract}";
+
+            var command = new SqlCommand(Query, connectionDB.GetConnection());
+            command.ExecuteNonQuery();
+            MessageBox.Show($"Стоянка продлена до {new_date2}");
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

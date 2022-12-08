@@ -41,39 +41,42 @@ namespace ParkingCars.Forms.Authorization
 
             
             connectionDB.OpenConnection();
-            var commandAdmin = new SqlCommand("SELECT login_user FROM register where login_user ='admin'", connectionDB.GetConnection());
+            var commandAdmin = new SqlCommand($"SELECT login_user FROM register where login_user ='{loginUser}' AND is_admin = 1", connectionDB.GetConnection());
             var Admin = commandAdmin.ExecuteScalar();
             string valid_loginAdmin = Convert.ToString(Admin);
 
-            var commandAdmin2 = new SqlCommand("SELECT password_user FROM register where login_user ='admin'", connectionDB.GetConnection());
-            var Admin2 = commandAdmin2.ExecuteScalar();
-            string valid_passwordAdmin = Convert.ToString(Admin2);
+          //  var commandAdmin2 = new SqlCommand($"SELECT password_user FROM register where password_user ='{passwordUser}'", connectionDB.GetConnection());
+          //  var Admin2 = commandAdmin2.ExecuteScalar();
+          //  string valid_passwordAdmin = Convert.ToString(Admin2);
 
 
 
-            var commandUser = new SqlCommand("SELECT login_user FROM register where login_user ='user'", connectionDB.GetConnection());
+            var commandUser = new SqlCommand($"SELECT login_user FROM register where login_user ='{loginUser}'", connectionDB.GetConnection());
             var User = commandUser.ExecuteScalar();
             string valid_loginUser = Convert.ToString(User);
 
-            var commandUser2 = new SqlCommand("SELECT password_user FROM register where login_user ='user'", connectionDB.GetConnection());
+            var commandUser2 = new SqlCommand($"SELECT password_user FROM register where password_user ='{passwordUser}'", connectionDB.GetConnection());
             var User2 = commandUser2.ExecuteScalar();
             string valid_passwordUser = Convert.ToString(User2);
 
-            
+          //  var commandIsAdmin = new SqlCommand($"SELECT login_user FROM register where is_admin=1' And login_user='{loginUser}'", connectionDB.GetConnection());
+          //  var UserIsAdmin = commandUser2.ExecuteScalar();
+           // string valid_UserIsAdmin = Convert.ToString(UserIsAdmin);
 
-            if (loginUser == valid_loginAdmin && passwordUser == valid_passwordAdmin)
+          
+            if (loginUser == valid_loginAdmin && passwordUser == valid_passwordUser )
             {
-                MessageBox.Show("Вы успешно вошли");
+                MessageBox.Show($"Вы успешно вошли {loginUser}");
                 this.Close();
               
                 th = new Thread(openMainMenu);
                 th.SetApartmentState(ApartmentState.STA);
                 th.Start();
+                
             }
-            else if (loginUser == valid_loginUser && passwordUser == valid_passwordUser)
+            else if (loginUser == valid_loginUser && passwordUser == valid_passwordUser )
             {
-                MessageBox.Show("Вы успешно вошли");
-
+                MessageBox.Show($"Вы успешно вошли {loginUser}");
                 this.Close();
 
                 th = new Thread(openMeinEmployee);
@@ -96,6 +99,11 @@ namespace ParkingCars.Forms.Authorization
         {
             Forms.Authorization.Registration.Reg reg = new Registration.Reg();
             reg.ShowDialog();
+        }
+
+        private void Authorization_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

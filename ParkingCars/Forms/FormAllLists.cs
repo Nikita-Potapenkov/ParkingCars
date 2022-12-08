@@ -81,5 +81,11 @@ namespace ParkingCars.Forms
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Forms.Authorization.Registration.Reg reg = new Authorization.Registration.Reg();
+            reg.ShowDialog();
+        }
     }
 }

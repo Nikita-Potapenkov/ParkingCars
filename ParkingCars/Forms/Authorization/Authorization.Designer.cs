@@ -113,6 +113,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Authorization";
             this.Text = "Authorization";
+            this.Load += new System.EventHandler(this.Authorization_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

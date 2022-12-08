@@ -28,13 +28,27 @@ namespace ParkingCars.Forms.Authorization.Registration
             var login = textBox1.Text;
 
             var password = md5.GetHash(textBox2.Text);
-         
-            var Query = $"INSERT INTO register(login_user,password_user,is_admin) VALUES ('{login}','{password}',1)";
+
+
+            var commandUser = new SqlCommand($"SELECT  count(login_user) FROM register where login_user ='{login}'", connectionDB.GetConnection());
+            var User = commandUser.ExecuteScalar();
+            int valid_loginUser = Convert.ToInt32(User);
+
+            if (valid_loginUser !=0)
+            {
+                MessageBox.Show("Пользователь с таким логином существет ");
+            }
+            else
+            {
+                var Query = $"INSERT INTO register(login_user,password_user,is_admin) VALUES ('{login}','{password}',0)";
+
+                var command = new SqlCommand(Query, connectionDB.GetConnection());
+                command.ExecuteNonQuery();
+                MessageBox.Show("Успешно создан");
+                Close();
+            }
             
-            var command = new SqlCommand(Query, connectionDB.GetConnection());
-            command.ExecuteNonQuery();
-            MessageBox.Show("Успешно создан");
-            Close();
+
           
            
         }

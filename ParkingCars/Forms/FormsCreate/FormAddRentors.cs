@@ -16,5 +16,10 @@ namespace ParkingCars.Forms.FormsCreate
         {
             InitializeComponent();
         }
+
+        private void FormAddRentors_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -198,6 +198,7 @@
             this.Controls.Add(this.textBoxRentor_id);
             this.Name = "FormAddRentors";
             this.Text = "FormAddRentors";
+            this.Load += new System.EventHandler(this.FormAddRentors_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ParkingCars.Forms
 {
@@ -186,6 +187,23 @@ namespace ParkingCars.Forms
         private void button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Excel.Application exApp = new Excel.Application();
+
+            exApp.Workbooks.Add();
+            Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
+            int i, j;
+            for (i = 0; i <= dataGridView_List__rentors.RowCount - 2; i++)
+            {
+                for (j = 0; j <= dataGridView_List__rentors.ColumnCount - 1; j++)
+                {
+                    wsh.Cells[i + 1, j + 1] = dataGridView_List__rentors[j, i].Value.ToString();
+                }
+            }
+            exApp.Visible = true;
         }
     }
 }

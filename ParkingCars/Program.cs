@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParkingCars.Forms.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace ParkingCars
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMainMenu());
+            Application.Run(new Authorization());
+            //Application.Run(new FormMainMenu());
         }
     }
 }

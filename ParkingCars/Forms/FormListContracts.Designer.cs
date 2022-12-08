@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView_list_contracts = new System.Windows.Forms.DataGridView();
-            this.button_on_all_contracts = new System.Windows.Forms.Button();
             this.button_add_contracts = new System.Windows.Forms.Button();
             this.textBoxNumCont = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -47,6 +46,7 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.textBoxValid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_list_contracts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,21 +59,11 @@
             this.dataGridView_list_contracts.TabIndex = 0;
             this.dataGridView_list_contracts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_list_contracts_CellClick);
             // 
-            // button_on_all_contracts
-            // 
-            this.button_on_all_contracts.Location = new System.Drawing.Point(618, 179);
-            this.button_on_all_contracts.Name = "button_on_all_contracts";
-            this.button_on_all_contracts.Size = new System.Drawing.Size(187, 23);
-            this.button_on_all_contracts.TabIndex = 1;
-            this.button_on_all_contracts.Text = "Вывести все контракты";
-            this.button_on_all_contracts.UseVisualStyleBackColor = true;
-            this.button_on_all_contracts.Click += new System.EventHandler(this.button_on_all_contracts_Click);
-            // 
             // button_add_contracts
             // 
-            this.button_add_contracts.Location = new System.Drawing.Point(677, 231);
+            this.button_add_contracts.Location = new System.Drawing.Point(490, 223);
             this.button_add_contracts.Name = "button_add_contracts";
-            this.button_add_contracts.Size = new System.Drawing.Size(75, 23);
+            this.button_add_contracts.Size = new System.Drawing.Size(127, 42);
             this.button_add_contracts.TabIndex = 2;
             this.button_add_contracts.Text = "Добавить ";
             this.button_add_contracts.UseVisualStyleBackColor = true;
@@ -207,11 +197,22 @@
             this.label8.TabIndex = 19;
             this.label8.Text = "Валидноть";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(490, 271);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 42);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Выгрузить в Excel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormListContracts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxValid);
             this.Controls.Add(this.dateTimePicker3);
@@ -229,7 +230,6 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBoxNumCont);
             this.Controls.Add(this.button_add_contracts);
-            this.Controls.Add(this.button_on_all_contracts);
             this.Controls.Add(this.dataGridView_list_contracts);
             this.Name = "FormListContracts";
             this.Text = "FormListContracts";
@@ -243,7 +243,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView_list_contracts;
-        private System.Windows.Forms.Button button_on_all_contracts;
         private System.Windows.Forms.Button button_add_contracts;
         private System.Windows.Forms.TextBox textBoxNumCont;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -261,5 +260,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.TextBox textBoxValid;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }

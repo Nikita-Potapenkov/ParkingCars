@@ -49,11 +49,19 @@
     <Compile Include="AddInDataBase.cs" />
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="DataGridsViews.cs" />
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\Authorization\Authorization.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Authorization\Authorization.Designer.cs">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Authorization\CheckUser.cs" />
+    <Compile Include="Forms\Authorization\MD5.cs" />
+    <Compile Include="Forms\Authorization\Registration\Reg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Authorization\Registration\Reg.Designer.cs">
+      <DependentUpon>Reg.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormAllLists.cs">
       <SubType>Form</SubType>
@@ -91,12 +99,6 @@
     <Compile Include="Forms\FormListRentors.Designer.cs">
       <DependentUpon>FormListRentors.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormMainMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormMainMenu.Designer.cs">
-      <DependentUpon>FormMainMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormListRates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +129,12 @@
     <Compile Include="Forms\FormsCreate\FormNewRentors.Designer.cs">
       <DependentUpon>FormNewRentors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainMenu\FormMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenu\FormMainMenu.Designer.cs">
+      <DependentUpon>FormMainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MeinEmployee\MainMenuEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,8 +158,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UploadExcel.cs" />
+    <EmbeddedResource Include="Forms\Authorization\Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Authorization\Registration\Reg.resx">
+      <DependentUpon>Reg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAllLists.resx">
       <DependentUpon>FormAllLists.cs</DependentUpon>
@@ -174,9 +186,6 @@
     <EmbeddedResource Include="Forms\FormListRentors.resx">
       <DependentUpon>FormListRentors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormMainMenu.resx">
-      <DependentUpon>FormMainMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsCreate\FormAddColors.resx">
       <DependentUpon>FormAddColors.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsCreate\FormNewRentors.resx">
       <DependentUpon>FormNewRentors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainMenu\FormMainMenu.resx">
+      <DependentUpon>FormMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MeinEmployee\MainMenuEmployee.resx">
       <DependentUpon>MainMenuEmployee.cs</DependentUpon>
@@ -246,6 +258,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

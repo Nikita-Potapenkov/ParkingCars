@@ -38,7 +38,6 @@
             this.textBoxNumberCar = new System.Windows.Forms.TextBox();
             this.textBoxMarkCar = new System.Windows.Forms.TextBox();
             this.textBoxModelCar = new System.Windows.Forms.TextBox();
-            this.comboBoxColorCar = new System.Windows.Forms.ComboBox();
             this.colorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.parkingDataSet = new ParkingCars.ParkingDataSet();
             this.parkingDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -48,6 +47,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxValid = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxColorCar = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_list_cars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parkingDataSet)).BeginInit();
@@ -66,9 +67,9 @@
             // 
             // button_add_car
             // 
-            this.button_add_car.Location = new System.Drawing.Point(646, 315);
+            this.button_add_car.Location = new System.Drawing.Point(311, 248);
             this.button_add_car.Name = "button_add_car";
-            this.button_add_car.Size = new System.Drawing.Size(92, 35);
+            this.button_add_car.Size = new System.Drawing.Size(115, 35);
             this.button_add_car.TabIndex = 2;
             this.button_add_car.Text = "Добавить";
             this.button_add_car.UseVisualStyleBackColor = true;
@@ -131,18 +132,6 @@
             this.textBoxModelCar.Size = new System.Drawing.Size(100, 20);
             this.textBoxModelCar.TabIndex = 9;
             // 
-            // comboBoxColorCar
-            // 
-            this.comboBoxColorCar.DataSource = this.colorsBindingSource;
-            this.comboBoxColorCar.DisplayMember = "color_name";
-            this.comboBoxColorCar.FormattingEnabled = true;
-            this.comboBoxColorCar.Location = new System.Drawing.Point(627, 285);
-            this.comboBoxColorCar.Name = "comboBoxColorCar";
-            this.comboBoxColorCar.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxColorCar.TabIndex = 10;
-            this.comboBoxColorCar.ValueMember = "color_id";
-            this.comboBoxColorCar.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // colorsBindingSource
             // 
             this.colorsBindingSource.DataMember = "colors";
@@ -202,17 +191,36 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Валидность";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(311, 289);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 35);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Выгрузить в Excel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBoxColorCar
+            // 
+            this.comboBoxColorCar.FormattingEnabled = true;
+            this.comboBoxColorCar.Location = new System.Drawing.Point(97, 406);
+            this.comboBoxColorCar.Name = "comboBoxColorCar";
+            this.comboBoxColorCar.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxColorCar.TabIndex = 17;
+            // 
             // FormListCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(616, 450);
+            this.Controls.Add(this.comboBoxColorCar);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxValid);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxIdCar);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBoxColorCar);
             this.Controls.Add(this.textBoxModelCar);
             this.Controls.Add(this.textBoxMarkCar);
             this.Controls.Add(this.textBoxNumberCar);
@@ -245,7 +253,6 @@
         private System.Windows.Forms.TextBox textBoxNumberCar;
         private System.Windows.Forms.TextBox textBoxMarkCar;
         private System.Windows.Forms.TextBox textBoxModelCar;
-        private System.Windows.Forms.ComboBox comboBoxColorCar;
         private System.Windows.Forms.BindingSource parkingDataSetBindingSource;
         private ParkingDataSet parkingDataSet;
         private System.Windows.Forms.BindingSource colorsBindingSource;
@@ -255,5 +262,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxValid;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxColorCar;
     }
 }

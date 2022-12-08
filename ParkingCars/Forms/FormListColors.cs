@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace ParkingCars.Forms
 {
     public partial class FormListColors : Form
@@ -198,6 +198,23 @@ namespace ParkingCars.Forms
         private void dataGridView_list_colors_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Excel.Application exApp = new Excel.Application();
+
+            exApp.Workbooks.Add();
+            Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
+            int i, j;
+            for (i = 0; i <= dataGridView_list_colors.RowCount - 2; i++)
+            {
+                for (j = 0; j <= dataGridView_list_colors.ColumnCount-1; j++)
+                {
+                    wsh.Cells[i + 1, j+1] = dataGridView_list_colors[j, i].Value.ToString();
+                }
+            }
+            exApp.Visible = true;
         }
     }
 }

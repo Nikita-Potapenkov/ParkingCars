@@ -32,9 +32,9 @@ namespace ParkingCars.Forms.MeinEmployee
         {
             InitializeComponent();
         }
-        
-        
+
        
+
         private void buttonNewRentors_Click(object sender, EventArgs e)
         {
             Forms.FormsCreate.FormNewRentors formNewRentors = new FormNewRentors();
@@ -48,17 +48,25 @@ namespace ParkingCars.Forms.MeinEmployee
 
         private void MainMenuEmployee_Load(object sender, EventArgs e)
         {
-             connectionDB.OpenConnection();
+           
+
+            connectionDB.OpenConnection();
              var commandNUM = new SqlCommand("SELECT COUNT(parking_valid)FROM parking WHERE parking_valid=1", connectionDB.GetConnection());
              var NUM = commandNUM.ExecuteScalar();
              label1.Text = Convert.ToString(NUM);
-            var commandQuery_on_Debtors = new SqlCommand("SELECT COUNT(contract_id)FROM contracts WHERE contract_date_extension <= GETDATE()", connectionDB.GetConnection());
+
+            var commandQuery_on_Debtors = new SqlCommand("SELECT COUNT(contract_id)FROM contracts WHERE contract_date_extension <= GETDATE() AND contract_valid=1", connectionDB.GetConnection());
             var Query_on_Debtors = commandQuery_on_Debtors.ExecuteScalar();
             label3.Text=Convert.ToString(Query_on_Debtors);
+
+            var commandQuery_onSUM = new SqlCommand("SELECT SUM(rate_price) FROM rates r JOIN contracts cont ON r.rate_id=cont.contract_rate_id AND cont.contract_valid = 1 ", connectionDB.GetConnection());
+            var Query_onSUM = commandQuery_onSUM.ExecuteScalar();
+            label15.Text = Convert.ToString(Query_onSUM);
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+
+        { 
             dataGridsViews.Query_on_Main_Menu();
             dataGridsViews.table.Clear();
             dataGridsViews.adapter.Fill(dataGridsViews.table);
@@ -94,8 +102,8 @@ namespace ParkingCars.Forms.MeinEmployee
 
            if (dataGridView1.Rows[selectedRowIndex].Cells[0].ToString() != string.Empty)
            {
-                dataGridView1.Rows[selectedRowIndex].SetValues( parking_place, num_car, surname, name, midname, date, date_ex, valid);
-                dataGridView1.Rows[selectedRowIndex].Cells[9].Value = RowState.Modifided;
+                dataGridView1.Rows[selectedRowIndex].SetValues( parking_place, num_car, surname, name, midname, ren_num,date, date_ex, valid);
+                dataGridView1.Rows[selectedRowIndex].Cells[8].Value = RowState.Modifided;
            }
             /// var updateQuery = $"UPDATE rentors SET rentor_surname='{surname}',rentor_name='{name}',rentor_middlename='{middlename}'" +
             //         $",rentor_number='{number}',rentor_valid='{valid}',rentor_car_id='{car_id}',rentor_contract_id='{contract_id}' WHERE rentor_id ={id}";
@@ -104,9 +112,25 @@ namespace ParkingCars.Forms.MeinEmployee
             //command.ExecuteNonQuery();
 
             var DeleteParking = $"UPDATE parking SET parking_valid=1 WHERE parking_id={parking_place}";
-            var DeleteContracts = $"UPDATE contracts SET contracts_valid = 0 WHERE contract_parking_id={parking_place}";
-            var DeleteRentors = $"UPDATE rentors SET rentor_valid=0 WHERE rentor_number={ren_num} ";
-            var DeleteCars = $"UPDATE cars SET car_valid = 0 WHERE car_number={num_car}";
+            var DeleteContracts = $"UPDATE contracts SET contract_valid = 0 WHERE contract_parking_id={parking_place}";
+            var DeleteRentors = $"UPDATE rentors SET rentor_valid=0 WHERE rentor_number='{ren_num}' ";
+            var DeleteCars = $"UPDATE cars SET car_valid = 0 WHERE car_number='{num_car}'";
+
+
+            var command1 = new SqlCommand(DeleteParking, connectionDB.GetConnection());
+            command1.ExecuteNonQuery();
+
+            var command2 = new SqlCommand(DeleteContracts, connectionDB.GetConnection());
+            command2.ExecuteNonQuery();
+
+            var command3 = new SqlCommand(DeleteRentors, connectionDB.GetConnection());
+            command3.ExecuteNonQuery();
+
+
+            var command4 = new SqlCommand(DeleteCars, connectionDB.GetConnection());
+            command4.ExecuteNonQuery();
+
+            MessageBox.Show("Удаление успешно завершено");
         }
         private void button3_Click(object sender, EventArgs e)
         {

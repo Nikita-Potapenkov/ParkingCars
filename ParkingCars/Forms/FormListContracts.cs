@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ParkingCars.Forms
 {
@@ -120,6 +121,23 @@ namespace ParkingCars.Forms
                 textBoxPlace.Text = row.Cells[6].Value.ToString();
                 textBoxRate.Text = row.Cells[7].Value.ToString();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Excel.Application exApp = new Excel.Application();
+
+            exApp.Workbooks.Add();
+            Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
+            int i, j;
+            for (i = 0; i <= dataGridView_list_contracts.RowCount - 2; i++)
+            {
+                for (j = 0; j <= dataGridView_list_contracts.ColumnCount - 1; j++)
+                {
+                    wsh.Cells[i + 1, j + 1] = dataGridView_list_contracts[j, i].Value.ToString();
+                }
+            }
+            exApp.Visible = true;
         }
     }
 }

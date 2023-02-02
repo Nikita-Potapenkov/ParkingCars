@@ -24,7 +24,7 @@ namespace ParkingCars.Forms.FormsCreate
         {
             //ЗАГРУЗКА ДЛЯ TEXTBOX
 
-            string sql = "SELECT * FROM parking WHERE parking_valid = 'true'";
+            string sql = "SELECT * FROM parking WHERE parking_valid ='true'";
             string sql1= "SELECT * FROM colors";
             string sql2 = "SELECT * FROM rates";
             using (SqlCommand cmd = new SqlCommand(sql, connection))
@@ -158,6 +158,11 @@ namespace ParkingCars.Forms.FormsCreate
         {
             var a = dateTimePicker.Value.AddMonths(1).ToString();
             MessageBox.Show(a);
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

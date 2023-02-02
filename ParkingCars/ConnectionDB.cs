@@ -10,7 +10,7 @@ namespace ParkingCars
     internal class ConnectionDB
     {
         //Ввод данных для одключения БД
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-4EL3AOO;initial Catalog =PARKING;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-4EL3AOO;initial Catalog =Parking;Integrated Security=True");
 
         //Подсоединение к БД
         public void OpenConnection()

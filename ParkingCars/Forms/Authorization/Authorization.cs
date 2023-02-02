@@ -45,9 +45,7 @@ namespace ParkingCars.Forms.Authorization
             var Admin = commandAdmin.ExecuteScalar();
             string valid_loginAdmin = Convert.ToString(Admin);
 
-          //  var commandAdmin2 = new SqlCommand($"SELECT password_user FROM register where password_user ='{passwordUser}'", connectionDB.GetConnection());
-          //  var Admin2 = commandAdmin2.ExecuteScalar();
-          //  string valid_passwordAdmin = Convert.ToString(Admin2);
+      
 
 
 
@@ -59,9 +57,7 @@ namespace ParkingCars.Forms.Authorization
             var User2 = commandUser2.ExecuteScalar();
             string valid_passwordUser = Convert.ToString(User2);
 
-          //  var commandIsAdmin = new SqlCommand($"SELECT login_user FROM register where is_admin=1' And login_user='{loginUser}'", connectionDB.GetConnection());
-          //  var UserIsAdmin = commandUser2.ExecuteScalar();
-           // string valid_UserIsAdmin = Convert.ToString(UserIsAdmin);
+       
 
           
             if (loginUser == valid_loginAdmin && passwordUser == valid_passwordUser )

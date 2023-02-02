@@ -52,5 +52,10 @@ namespace ParkingCars.Forms.Authorization.Registration
           
            
         }
+
+        private void Reg_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

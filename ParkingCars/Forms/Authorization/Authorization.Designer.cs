@@ -92,9 +92,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(86, 229);
+            this.button2.Location = new System.Drawing.Point(508, 313);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
+            this.button2.Size = new System.Drawing.Size(17, 10);
             this.button2.TabIndex = 6;
             this.button2.Text = "Создание админа";
             this.button2.UseVisualStyleBackColor = true;

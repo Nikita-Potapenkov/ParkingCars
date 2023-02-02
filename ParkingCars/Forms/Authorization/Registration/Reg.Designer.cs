@@ -89,6 +89,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Reg";
             this.Text = "Reg";
+            this.Load += new System.EventHandler(this.Reg_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
